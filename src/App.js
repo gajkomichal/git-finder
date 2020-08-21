@@ -12,7 +12,6 @@ class App extends React.Component {
   state = {
     users: [],
     user: {},
-    repos: [],
     loading: false,
     alert: null,
   };
@@ -35,8 +34,8 @@ class App extends React.Component {
     this.setState({ user: res.data, loading: false });
   };
 
-  setAlert = (msg) => {
-    this.setState({ alert: msg });
+  setAlert = (msg, type) => {
+    this.setState({ alert: { msg, type } });
 
     setTimeout(() => this.setState({ alert: null }), 5000);
   };
